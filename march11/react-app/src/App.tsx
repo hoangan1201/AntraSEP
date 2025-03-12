@@ -1,35 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// import { useState } from "react";
+import Job from "./Components/Job";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  type JobType = {
+    company: string;
+    jobTitle: string;
+    hourlyWage: number;
+  };
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+  const jobList: JobType[] = [
+    { company: "Google", jobTitle: "Software Engineer", hourlyWage: 60 },
+    { company: "Amazon", jobTitle: "Data Analyst", hourlyWage: 50 },
+    { company: "Microsoft", jobTitle: "Cloud Engineer", hourlyWage: 55 },
+    { company: "Tesla", jobTitle: "Mechanical Engineer", hourlyWage: 45 },
+    { company: "Meta", jobTitle: "Frontend Developer", hourlyWage: 58 },
+  ];
+
+  return <div>
+    {jobList.map((job: JobType, index: number) => {
+      const {company, jobTitle, hourlyWage}:any = job;
+      return (
+        <ul>
+          <Job company={company} jobTitle={jobTitle} hourlyWage={hourlyWage} key={index}/>
+          {/* Pass data to child component */}
+        </ul>
+      )
+    })}
+  </div>;
 }
 
-export default App
+export default App;
