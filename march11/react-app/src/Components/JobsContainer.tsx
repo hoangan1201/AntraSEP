@@ -3,7 +3,7 @@ import Job from "./Job";
 export default function JobsContainer(props: any) {
   console.log(props);
   return (
-    <ul>
+    <ol>
       {props.jobs.map((job: any, index: number) => {
         const { company, jobTitle, hourlyWage }: any = job;
         {
@@ -22,6 +22,6 @@ export default function JobsContainer(props: any) {
           </li>
         );
       })}
-    </ul>
+    </ol>
   );
 }

@@ -3,14 +3,16 @@ export default function Job({ company, jobTitle, hourlyWage }: any) {
   return (
     <div>
       <h3>Company: {company}</h3>
-      <p>Job Title: {jobTitle}</p>
-      <p>Hourly Wage: {hourlyWage} </p>
-      <p>
-        Wage Rating:{" "}
-        <span style={{ color: hourlyWage > 50 ? "green" : "red" }}>
-          {hourlyWage > 50 ? "High" : "Low"}
-        </span>
-      </p>
+      <ul>
+        <li>Job Title: {jobTitle}</li>
+        <li>Hourly Wage: {hourlyWage} </li>
+        <li>
+          Wage Rating:{" "}
+          <span style={{ color: hourlyWage > 50 ? "green" : "red" }}>
+            {hourlyWage > 50 ? "High" : "Low"}
+          </span>
+        </li>
+      </ul>
       {/* ternary operator */}
     </div>
   );
