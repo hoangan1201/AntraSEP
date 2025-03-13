@@ -1,5 +1,7 @@
 // import { useState } from "react";
-import Job from "./Components/Job";
+
+import Header from "./Components/Header";
+import JobsContainer from "./Components/JobsContainer";
 import "./App.css";
 
 function App() {
@@ -9,7 +11,7 @@ function App() {
     hourlyWage: number;
   };
 
-  const jobList: JobType[] = [
+  const jobsList: JobType[] = [
     { company: "Google", jobTitle: "Software Engineer", hourlyWage: 60 },
     { company: "Amazon", jobTitle: "Data Analyst", hourlyWage: 50 },
     { company: "Microsoft", jobTitle: "Cloud Engineer", hourlyWage: 55 },
@@ -17,17 +19,12 @@ function App() {
     { company: "Meta", jobTitle: "Frontend Developer", hourlyWage: 58 },
   ];
 
-  return <div>
-    {jobList.map((job: JobType, index: number) => {
-      const {company, jobTitle, hourlyWage}:any = job;
-      return (
-        <ul>
-          <Job company={company} jobTitle={jobTitle} hourlyWage={hourlyWage} key={index}/>
-          {/* Pass data to child component */}
-        </ul>
-      )
-    })}
-  </div>;
+  return (
+    <div>
+      <Header/>
+      <JobsContainer jobs={jobsList}/>
+    </div>
+  );
 }
 
 export default App;
