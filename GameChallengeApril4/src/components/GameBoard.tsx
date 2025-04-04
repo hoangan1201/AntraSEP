@@ -100,17 +100,26 @@ export default function GameBoard({ dimension }: any) {
     setWinner(null);
   }
 
-  function capitalizeFirstLetter(str:any) {
-    return String(str).charAt(0).toUpperCase() + String(str).slice(1);
-}
+let displayText="";
 
+switch (winner) {
+  case "red":
+    displayText = "Red Wins!";
+    break;
+  case "yellow":
+    displayText = "Yellow Wins!";
+    break;
+  case "tie":
+    displayText = "Tie Game!";
+    break;
+}
   return (
     <div>
         <button onClick={resetGame}>Reset</button>
       {!winner && <h2 style={{ color: currentTurn }}>Player's Turn</h2>}
       {winner && (
         <h2 style={{ color: winner === "tie" ? "green" : winner }}>
-          {capitalizeFirstLetter(winner)} player wins!
+          {displayText}
         </h2>
       )}
       {gameBoard.map((row, rowIndex) => {
