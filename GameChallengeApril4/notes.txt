@@ -1,0 +1,12 @@
+ideas: 
+- gameboard component
+- use 2d array to represent matrix
+- when click on column, add color to lowest index of that column.
+
+- minimum 4 max 10 for dimension
+
+logic:
+- drop 1 coin
+- check surroundings to find match
+- check if enough 4 in a row
+- from the coin dropped, use check back and forth for 3 directions
